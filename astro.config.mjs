@@ -7,8 +7,12 @@ import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astro-blog-template.netlify.app',
+  site: 'https://oioki.me',
   integrations: [mdx(), svelte()],
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['de', 'en', 'ru'],
+  },
   markdown: {
     shikiConfig: {
       theme: 'nord',

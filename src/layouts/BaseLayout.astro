@@ -7,17 +7,19 @@ export interface Props {
   title: string;
   description: string;
   permalink: string;
+  locale?: string;
+  slug?: string;
   current?: string;
 }
-const { title, description, permalink, current } = Astro.props;
+const { title, description, permalink, locale, slug, current } = Astro.props;
 ---
-<html lang="en">
+<html lang={locale}>
 <head>
   <BaseHead title={title} description={description} permalink={permalink} />
 </head>
 <body>
   <div class="layout">
-    <Header current={current} />
+    <Header current={current} locale={locale} slug={slug} />
 
     <main>
       <slot />

@@ -1,3 +1,7 @@
+---
+const { locale } = Astro.props;
+const indexLink = locale === 'en' ? '/' : `/${locale}/`;
+---
 <style>
   img {
     display: block;
@@ -11,6 +15,6 @@
   }
 </style>
 
-<a href="/">
+<a href={indexLink}>
   <img alt="Blog Logo" src="/assets/logo.webp" width="75" height="50" />
 </a>

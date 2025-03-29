@@ -1,20 +1,34 @@
 ---
 import { getCollection } from 'astro:content'
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getRelativeLocaleUrlList } from 'astro:i18n';
+
+const locale = Astro.currentLocale;
+
+export async function getStaticPaths() {
+  const paths = getRelativeLocaleUrlList();
+
+  return paths.map((url) => {
+    const locale = url.split('/')[1] || 'en';
+
+    return { params: { lang: locale } };
+  });
+}
 
 const title = 'Blog';
 const description = 'Latest articles.';
 const permalink = `${Astro.site.href}blog`;
 
 let allPosts = await getCollection('posts')
-allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
+allPosts = allPosts.filter((data) => data.id.split('/')[0] == locale).sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current="blog">
+<BaseLayout title={title} description={description} permalink={permalink} locale={locale} current="blog">
   <div class="container">
-    <h1>Blog</h1>
+    <h1>oioki.me</h1>
     {allPosts.map((post, index) => {
-      const href = `/blog/${post.data.slug}`;
+      const [locale, slug] = post.data.id.split('/');
+      const href = `/${locale}/${slug}/`;
       return (
         <div>
           { index !== 0 && <hr /> }
