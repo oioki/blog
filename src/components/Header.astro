@@ -2,7 +2,7 @@
 import Logo from './Logo.astro'
 import Nav from './Nav.astro'
 
-const { current = '', locale, slug } = Astro.props;
+const { current = '', locale, locales, slug } = Astro.props;
 ---
 
 <style>
@@ -23,5 +23,5 @@ const { current = '', locale, slug } = Astro.props;
 
 <header>
   <Logo locale={locale} />
-  <Nav current={current} locale={locale} slug={slug} />
+  <Nav current={current} locale={locale} locales={locales} slug={slug} />
 </header>

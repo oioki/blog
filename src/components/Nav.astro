@@ -1,6 +1,6 @@
 ---
 import ThemeToggleButton from './ThemeToggleButton.svelte';
-const { current = '', locale, slug } = Astro.props;
+const { current = '', locale, locales, slug } = Astro.props;
 const linkDe = slug ? `/de/${slug}/` : '/de/';
 const linkEn = slug ? `/en/${slug}/` : '/';
 const linkRu = slug ? `/ru/${slug}/` : '/ru/';
@@ -26,6 +26,13 @@ const linkRu = slug ? `/ru/${slug}/` : '/ru/';
     margin-left: 20px;
     min-width: 70px;
     text-align: center;
+  }
+
+  div.inactive {
+    color: var(--inactive-color);
+    padding: 10px 5px;
+    margin-left: 20px;
+    min-width: 70px;
   }
 
   a:not(.selected) {
@@ -68,9 +75,24 @@ const linkRu = slug ? `/ru/${slug}/` : '/ru/';
 <nav>
   <a class={current === "" ? "selected" : ""} href='/'>blog</a>
   <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
-  <a class={locale === "de" ? "selected" : ""} href={linkDe} style="min-width:10px">DE</a>
-  <a class={locale === "en" ? "selected" : ""} href={linkEn} style="min-width:10px">EN</a>
-  <a class={locale === "ru" ? "selected" : ""} href={linkRu} style="min-width:10px">RU</a>
+  {
+    locales.includes("de") ?
+      <a class={locale === "de" ? "selected" : ""} href={linkDe} style="min-width:10px">DE</a>
+    :
+      <div class="inactive" style="min-width:10px">DE</div>
+  }
+  {
+    locales.includes("en") ?
+      <a class={locale === "en" ? "selected" : ""} href={linkEn} style="min-width:10px">EN</a>
+    :
+      <div class="inactive" style="min-width:10px">EN</div>
+  }
+  {
+    locales.includes("ru") ?
+      <a class={locale === "ru" ? "selected" : ""} href={linkRu} style="min-width:10px">RU</a>
+    :
+      <div class="inactive" style="min-width:10px">RU</div>
+  }
   <div class="theme-toggle-container">
     <ThemeToggleButton client:load />
   </div>

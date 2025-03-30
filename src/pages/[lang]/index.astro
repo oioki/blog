@@ -23,7 +23,7 @@ let allPosts = await getCollection('posts')
 allPosts = allPosts.filter((data) => data.id.split('/')[0] == locale).sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} locale={locale} current="blog">
+<BaseLayout title={title} description={description} permalink={permalink} locale={locale} locales={["de", "en", "ru"] as string[]} current="blog">
   <div class="container">
     <h1>oioki.me</h1>
     {allPosts.map((post, index) => {

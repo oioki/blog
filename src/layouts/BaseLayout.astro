@@ -8,10 +8,11 @@ export interface Props {
   description: string;
   permalink: string;
   locale?: string;
+  locales?: string[];
   slug?: string;
   current?: string;
 }
-const { title, description, permalink, locale, slug, current } = Astro.props;
+const { title, description, permalink, locale, locales, slug, current } = Astro.props;
 ---
 <html lang={locale}>
 <head>
@@ -19,7 +20,7 @@ const { title, description, permalink, locale, slug, current } = Astro.props;
 </head>
 <body>
   <div class="layout">
-    <Header current={current} locale={locale} slug={slug} />
+    <Header current={current} locale={locale} locales={locales} slug={slug} />
 
     <main>
       <slot />

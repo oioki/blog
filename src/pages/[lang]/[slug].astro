@@ -9,18 +9,19 @@ export async function getStaticPaths() {
 
   return allPosts.map((post) => {
     const [locale, slug] = post.data.id.split('/');
+    const locales = allPosts.filter((data) => data.data.id.split('/')[1] == slug).map((post) => {return post.id.split('/')[0]});
 
     return {
       params: {
         lang: locale,
         slug: slug
       },
-      props: { post }
+      props: { post, locales: locales }
     };
   });
 }
 
-const { post } = Astro.props;
+const { post, locales } = Astro.props;
 
 const { title, id, description, publishDate } = post.data;
 const [locale, slug] = id.split('/');
@@ -29,7 +30,7 @@ const permalink = `${Astro.site.href}${locale}/${slug}/`;
 const { Content } = await render(post)
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} locale={locale} slug={slug} current="blog">
+<BaseLayout title={title} description={description} permalink={permalink} locale={locale} locales={locales} slug={slug} current="blog">
   <header>
     <p>{publishDate} ~ {readingTimeEstimate}</p>
     <h1>{title}</h1>
