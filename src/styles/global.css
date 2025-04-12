@@ -4,6 +4,7 @@
   --text-secondary: #6b6f72;
   --primary-color: #548e9b;
   --inactive-color: #ccc;
+  --code-background-color: #f0f0f0;
   --font-family-serif: Merriweather, serif;
   --font-family-sans: 'Fira Sans', sans-serif;
 }
@@ -14,6 +15,7 @@
   --text-secondary: #ccc;
   --primary-color: #548e9b;
   --inactive-color: #444;
+  --code-background-color: #101010;
 }
 
 html {
@@ -40,6 +42,10 @@ body {
   line-height: 1.6;
   background-color: var(--background-body);
   color: var(--text-main);
+}
+
+span.hidden {
+  color: var(--background-body);
 }
 
 h1,
@@ -147,6 +153,11 @@ code {
   border-radius: 2px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+p code {
+  background: var(--code-background-color);
+  color: var(--primary-color);
 }
 
 pre {
