@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Running';
+const description = 'Running stats.';
+const permalink = `${Astro.site.href}running`;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="running" locales=[]>
+  <div class="container">
+    <h1>Running stats</h1>
+
+    <form id="paceForm">
+    <input type="text" id="time" value="4:00:00">
+    <button>Calculate Pace</button>
+    <div id="result"></div>
+    </form>
+
+    <script is:inline>
+      document.getElementById('paceForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const [hours, minutes, seconds] = document.getElementById('time').value.split(':').map(str => parseInt(str, 10));
+
+        const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+        const marathonDistanceKm = 42.195;
+
+        const paceSeconds = totalSeconds / marathonDistanceKm;
+        const paceMinutes = Math.floor(paceSeconds / 60);
+        const remainingSeconds = Math.round(paceSeconds % 60);
+
+        result = `${paceMinutes}:${remainingSeconds.toString().padStart(2, '0')} min/km`;
+        document.getElementById('result').textContent = result;
+      });
+    </script>
+
+    <h2>Marathon (42 km)</h2>
+    <table>
+      <tr>
+        <td>06.04.2025</td>
+        <td>🇦🇹 Vienna</td>
+        <td>4:48:39</td>
+        <td>6:50</td>
+      </tr>
+      <tr>
+        <td>22.04.2017</td>
+        <td><a href="https://www.instagram.com/p/BTMGcWHgguR/">🇷🇸 Belgrade</a></td>
+        <td>3:38:12</td>
+        <td>5:10</td>
+      </tr>
+      <tr>
+        <td>05.03.2017</td>
+        <td><a href="https://www.instagram.com/p/BRQTnMSAPRq/">🇨🇾 Paphos</a></td>
+        <td>3:49:30</td>
+        <td>5:26</td>
+      </tr>
+      <tr class="best-time">
+        <td>13.11.2016</td>
+        <td><a href="/ru/athens-authentic-marathon/">🇬🇷 Athens</a></td>
+        <td>3:37:26</td>
+        <td>5:09</td>
+      </tr>
+      <tr>
+        <td>10.04.2016</td>
+        <td><a href="/ru/limassol-marathon/">🇨🇾 Limassol</a></td>
+        <td>3:43:04</td>
+        <td>5:17</td>
+      </tr>
+      <tr>
+        <td>25.10.2015</td>
+        <td><a href="/ru/marathon-2015/">🇲🇪 Podgorica</a></td>
+        <td>3:45:22</td>
+        <td>5:20</td>
+      </tr>
+      <tr>
+        <td>26.10.2014</td>
+        <td><a href="/ru/marathon-podgorica-2014/">🇲🇪 Podgorica</a></td>
+        <td>4:23:20</td>
+        <td>6:14</td>
+      </tr>
+    </table>
+
+    <h2>Half Marathon (21 km)</h2>
+    <table>
+      <tr>
+        <td>07.04.2024</td>
+        <td><a href="https://vysledky.sportsoft.cz/pdf/certificate/228829">🇸🇰 Bratislava</a></td>
+        <td>2:04:41</td>
+        <td>5:55</td>
+      </tr>
+      <tr>
+        <td>03.03.2024</td>
+        <td><a href="https://www.endu.net/en/events/eurospin-roma-ostia-2025/results/2024/85691/6282">🇮🇹 Rome</a></td>
+        <td>2:05:01</td>
+        <td>5:56</td>
+      </tr>
+      <tr>
+        <td>23.04.2023</td>
+        <td><a href="https://vienna.r.mikatiming.com/2023/?content=detail&idp=HCH8OHST18E5C9&lang=EN_CAP&event=HML_HCH8OHST1E1">🇦🇹 Vienna</a></td>
+        <td>2:02:49</td>
+        <td>5:49</td>
+      </tr>
+      <tr>
+        <td>12.03.2023</td>
+        <td><a href="https://my2.raceresult.com/224181/certificates/2509/Alle%20Urkunden">🇦🇹 Vienna</a></td>
+        <td>1:56:33</td>
+        <td>5:31</td>
+      </tr>
+      <tr>
+        <td>24.04.2022</td>
+        <td><a href="https://vienna.r.mikatiming.com/2022/?content=detail&idp=HCH8OHST139617&lang=EN_CAP&event=HML_HCH8OHST1BZ">🇦🇹 Vienna</a></td>
+        <td>2:04:32</td>
+        <td>5:54</td>
+      </tr>
+      <tr class="best-time">
+        <td>23.02.2020</td>
+        <td><a href="https://my6.raceresult.com/149008/30898/Alle%20f%C3%BCr%20Internet">🇦🇹 Vienna</a></td>
+        <td>1:38:26</td>
+        <td>4:40</td>
+      </tr>
+      <tr>
+        <td>07.04.2019</td>
+        <td><a href="https://vienna.r.mikatiming.com/2019/?content=detail&idp=9999991A87619200000C0F81&lang=DE&event=HML">🇦🇹 Vienna</a></td>
+        <td>1:43:27</td>
+        <td>4:54</td>
+      </tr>
+      <tr>
+        <td>19.11.2017</td>
+        <td><a href="https://www.instagram.com/p/Bbq6oR6HmbK/">🇨🇾 Larnaca</a></td>
+        <td>1:43:10</td>
+        <td>4:53</td>
+      </tr>
+      <tr>
+        <td>24.06.2017</td>
+        <td><a href="https://www.instagram.com/p/BVs_nSDhtEE/">🇮🇸 Reykjavik</a></td>
+        <td>1:49:45</td>
+        <td>5:12</td>
+      </tr>
+      <tr>
+        <td>06.03.2016</td>
+        <td><a href="/ru/paphos-half-marathon/">🇨🇾 Paphos</a></td>
+        <td>1:39:14</td>
+        <td>4:42</td>
+      </tr>
+      <tr>
+        <td>06.09.2015</td>
+        <td><a href="/ru/kotor-half-marathon/">🇲🇪 Kotor</a></td>
+        <td>1:45:25</td>
+        <td>5:00</td>
+      </tr>
+    </table>
+
+    <h2>10 km</h2>
+    <table>
+      <tr>
+        <td>15.12.2019</td>
+        <td><a href="https://my6.raceresult.com/144024/10898/Alle%20f%C3%BCr%20Internet">🇦🇹 Vienna</a></td>
+        <td>45:54</td>
+        <td>4:35</td>
+      </tr>
+      <tr>
+        <td>02.04.2017</td>
+        <td><a href="https://www.instagram.com/p/BSX_j25Aa0R/">🇨🇾 Paphos</a></td>
+        <td>44:22</td>
+        <td>4:26</td>
+      </tr>
+      <tr class="best-time">
+        <td>19.03.2017</td>
+        <td><a href="https://www.instagram.com/p/BRz41LZATpV/">🇨🇾 Limassol</a></td>
+        <td>44:21</td>
+        <td>4:26</td>
+      </tr>
+    </table>
+
+    <h2>5 km</h2>
+    <table>
+      <tr class="best-time">
+        <td>16.09.2020</td>
+        <td>🇦🇹 Vienna</td>
+        <td>22:10</td>
+        <td>4:25</td>
+      </tr>
+      <tr>
+        <td>12.08.2020</td>
+        <td>🇦🇹 Vienna</td>
+        <td>22:37</td>
+        <td>4:31</td>
+      </tr>
+      <tr>
+        <td>15.07.2020</td>
+        <td>🇦🇹 Vienna</td>
+        <td>22:24</td>
+        <td>4:28</td>
+      </tr>
+    </table>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .best-time {
+    background-color: var(--primary-color);
+  }
+  table {
+    width: 100%;
+  }
+</style>

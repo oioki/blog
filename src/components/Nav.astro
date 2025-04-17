@@ -75,6 +75,7 @@ const linkRu = slug ? `/ru/${slug}/` : '/ru/';
 <nav>
   <a class={current === "" ? "selected" : ""} href='/'>blog</a>
   <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
+  <a class={current === "running" ? "selected" : ""} href='/running'>running</a>
   {
     locales.includes("de") ?
       <a class={locale === "de" ? "selected" : ""} href={linkDe} style="min-width:10px">DE</a>
