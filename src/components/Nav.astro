@@ -76,7 +76,7 @@ const indexLink = locale === 'en' ? '/' : `/${locale}/`;
 <nav>
   <a class={current === "" ? "selected" : ""} href={indexLink}>blog</a>
   <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
-  <a class={current === "running" ? "selected" : ""} href='/running'>running</a>
+  <a class={current === "running" ? "selected" : ""} style="min-width:10px" href='/running'>🏃</a>
   {
     locales.includes("de") ?
       <a class={locale === "de" ? "selected" : ""} href={linkDe} style="min-width:10px">DE</a>
