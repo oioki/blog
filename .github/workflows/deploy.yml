@@ -17,8 +17,8 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
-        ssh-keyscan ${DEPLOY_SERVER} >> ~/.ssh/known_hosts
+        ssh-keyscan "${{ env.DEPLOY_SERVER }}" >> ~/.ssh/known_hosts
 
     - name: Deploy over SSH
       run: |
-        ssh ${DEPLOY_USERNAME}@${DEPLOY_SERVER} "cd /home/ubuntu && touch hello-from-github"
+        ssh "${{ env.DEPLOY_USERNAME }}@${{ env.DEPLOY_SERVER }}" "cd /home/${{ env.DEPLOY_USERNAME }} && touch hello-from-github"
