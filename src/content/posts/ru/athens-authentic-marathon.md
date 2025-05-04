@@ -2,7 +2,7 @@
 title: "Марафон → Афины"
 id: "ru/athens-authentic-marathon"
 publishDate: "24 Nov 2016"
-description: ""
+description: "Мои ощущения от того самого забега в Греции."
 ---
 
 ![](/assets/blog/athens-authentic-marathon/marathonos-2.jpg)
