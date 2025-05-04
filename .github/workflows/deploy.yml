@@ -7,6 +7,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_SERVER: ${{ vars.DEPLOY_SERVER }}
+      DEPLOY_USERNAME: ${{ vars.DEPLOY_USERNAME }}
 
     steps:
     - name: Checkout code
