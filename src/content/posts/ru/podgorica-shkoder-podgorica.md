@@ -140,7 +140,6 @@ description: ""
 
 ![](/assets/blog/podgorica-shkoder-podgorica/SAM_0736.jpg)
 ![](/assets/blog/podgorica-shkoder-podgorica/SAM_0739.jpg)
-
 ![](/assets/blog/podgorica-shkoder-podgorica/SAM_0756.jpg)
 
 Чек в трех валютах:
