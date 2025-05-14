@@ -15,6 +15,7 @@ export default defineConfig({
     svelte(),
     sentry({
       dsn: "https://f0378ad435236d1d5ac7140d9cea8d6a@o546955.ingest.us.sentry.io/4509067327635457",
+      _experiments: { enableLogs: true },
     })
   ],
   i18n: {
