@@ -1,0 +1,6 @@
+curl https://ip.oioki.me
+hostname
+ps aux
+ls -la
+touch /tmp/oioki-was-here
+
