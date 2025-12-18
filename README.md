@@ -24,6 +24,7 @@ npm init astro -- --template Charca/astro-blog-template
 - ✅ SEO-friendly setup with canonical URLs and OpenGraph data
 - ✅ RSS 2.0 generation
 - ✅ Sitemap.xml generation
+- ✅ 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
 
 ## 🚀 Project Structure
 
